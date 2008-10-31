@@ -28,9 +28,10 @@ def mkpasswd(n, optional_chars)
   passwd_chars = (lower_chars + upper_chars + numbers + optional_chars).uniq
   passwd_chars_size = passwd_chars.size
 
-  n.times do
-    passwd << passwd_chars[rand(passwd_chars_size)]
-  end
+  passwd = Array.new(n){ passwd_chars[rand(passwd_chars_size)] }.join
+  #n.times do
+  #  passwd << passwd_chars[rand(passwd_chars_size)]
+  #end
 
   return passwd
 end
